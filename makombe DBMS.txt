@@ -1,0 +1,228 @@
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 74
+Server version: 8.3.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use ruhande;
+Database changed
+mysql> show tables;
++-------------------+
+| Tables_in_ruhande |
++-------------------+
+| ngoma             |
+| ngomga            |
++-------------------+
+2 rows in set (0.00 sec)
+
+mysql> select *from ngoma;
++------+-------------+---------+--------+----------+------------+-----------+-------------+----------------------------+-----------+
+| id   | f_name      | L_name  | gender | province | district   | sector    | cell        | Email                      | Tel       |
++------+-------------+---------+--------+----------+------------+-----------+-------------+----------------------------+-----------+
+|    2 | mugisha     | adam    | male   | East     | nyagatare  | rukomo    | nyarurembo  | mugisha123@gmail.com       |  78885067 |
+|    3 | violette    | angel   | female | west     | rubavu     | bweramana | kareba      | violette143@gmail.com      | 791234560 |
+|    4 | alice       | uwera   | female | South    | muhanga    | nyamabuye | bweyeye     | aliceuwera@gmail.com       | 791345680 |
+|    5 | claudine    | bwiza   | female | kigali   | nyarugenge | muhima    | kiyovu      | bwizaclaudine@gmail.com    | 792578086 |
+|    6 | niyo        | bosco   | male   | north    | musanze    | muhoza    | gasharu     | niyobosco@yahoo.com        | 788354627 |
+|    7 | jado        | ruberwa | male   | west     | karongi    | murundi   | kareba      | jador123@yahoo.com         | 799236792 |
+|    8 | niwemurungi | peace   | female | east     | kayonza    | murundi   | nyamushishi | niwemurungipeace@gmail.com | 799489752 |
+|    9 | itangishaka | gabin   | male   | west     | nyabihu    | rambura   | kabacuzi    | gabin i123@yahoo.com       | 788866543 |
++------+-------------+---------+--------+----------+------------+-----------+-------------+----------------------------+-----------+
+8 rows in set (0.00 sec)
+
+mysql> insert into ngoma values('010','rukundo','emile','male','south','nyanza','musasa','kanyinya','rukundoemile@yahoo.com','078865432');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from ngoma;
++------+-------------+---------+--------+----------+------------+-----------+-------------+----------------------------+-----------+
+| id   | f_name      | L_name  | gender | province | district   | sector    | cell        | Email                      | Tel       |
++------+-------------+---------+--------+----------+------------+-----------+-------------+----------------------------+-----------+
+|    2 | mugisha     | adam    | male   | East     | nyagatare  | rukomo    | nyarurembo  | mugisha123@gmail.com       |  78885067 |
+|    3 | violette    | angel   | female | west     | rubavu     | bweramana | kareba      | violette143@gmail.com      | 791234560 |
+|    4 | alice       | uwera   | female | South    | muhanga    | nyamabuye | bweyeye     | aliceuwera@gmail.com       | 791345680 |
+|    5 | claudine    | bwiza   | female | kigali   | nyarugenge | muhima    | kiyovu      | bwizaclaudine@gmail.com    | 792578086 |
+|    6 | niyo        | bosco   | male   | north    | musanze    | muhoza    | gasharu     | niyobosco@yahoo.com        | 788354627 |
+|    7 | jado        | ruberwa | male   | west     | karongi    | murundi   | kareba      | jador123@yahoo.com         | 799236792 |
+|    8 | niwemurungi | peace   | female | east     | kayonza    | murundi   | nyamushishi | niwemurungipeace@gmail.com | 799489752 |
+|    9 | itangishaka | gabin   | male   | west     | nyabihu    | rambura   | kabacuzi    | gabin i123@yahoo.com       | 788866543 |
+|   10 | rukundo     | emile   | male   | south    | nyanza     | musasa    | kanyinya    | rukundoemile@yahoo.com     |  78865432 |
++------+-------------+---------+--------+----------+------------+-----------+-------------+----------------------------+-----------+
+9 rows in set (0.00 sec)
+
+
+mysql> alter table ngoma add age varchar(20);
+Query OK, 10 rows affected (0.04 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> select *from ngoma;
++------+-------------+---------+--------+----------+------------+-----------+-------------+----------------------------+-----------+------+
+| id   | f_name      | L_name  | gender | province | district   | sector    | cell        | Email                      | Tel       | age  |
++------+-------------+---------+--------+----------+------------+-----------+-------------+----------------------------+-----------+------+
+|    2 | mugisha     | adam    | male   | East     | nyagatare  | rukomo    | nyarurembo  | mugisha123@gmail.com       |  78885067 | NULL |
+|    3 | violette    | angel   | female | west     | rubavu     | bweramana | kareba      | violette143@gmail.com      | 791234560 | NULL |
+|    4 | alice       | uwera   | female | South    | muhanga    | nyamabuye | bweyeye     | aliceuwera@gmail.com       | 791345680 | NULL |
+|    5 | claudine    | bwiza   | female | kigali   | nyarugenge | muhima    | kiyovu      | bwizaclaudine@gmail.com    | 792578086 | NULL |
+|    6 | niyo        | bosco   | male   | north    | musanze    | muhoza    | gasharu     | niyobosco@yahoo.com        | 788354627 | NULL |
+|    7 | jado        | ruberwa | male   | west     | karongi    | murundi   | kareba      | jador123@yahoo.com         | 799236792 | NULL |
+|    8 | niwemurungi | peace   | female | east     | kayonza    | murundi   | nyamushishi | niwemurungipeace@gmail.com | 799489752 | NULL |
+|    9 | itangishaka | gabin   | male   | west     | nyabihu    | rambura   | kabacuzi    | gabin i123@yahoo.com       | 788866543 | NULL |
+|   10 | rukundo     | emile   | male   | south    | nyanza     | musasa    | kanyinya    | rukundoemile@yahoo.com     |  78865432 | NULL |
+|    1 | ishimwe     | anitha  | female | west     | rubavu     | mwunguzi  | kabeza      | ishimweanitha@gmail.com    | 793678921 | NULL |
++------+-------------+---------+--------+----------+------------+-----------+-------------+----------------------------+-----------+------+
+10 rows in set (0.00 sec)
+
+mysql>
+
+
+mysql> update ngoma set age='20' where id='2';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update ngoma set age='17' where id='3';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update ngoma set age='19' where id='4';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update ngoma set age='29' where id='5';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update ngoma set age='21' where id='6';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update ngoma set age='25' where id='7';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update ngoma set age='15' where id='8';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update ngoma set age='28' where id='9';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update ngoma set age='24' where id='10';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update ngoma set age='20' where id='1';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from ngoma;
++------+-------------+---------+--------+----------+------------+-----------+-------------+----------------------------+-----------+------+
+| id   | f_name      | L_name  | gender | province | district   | sector    | cell        | Email                      | Tel       | age  |
++------+-------------+---------+--------+----------+------------+-----------+-------------+----------------------------+-----------+------+
+|    2 | mugisha     | adam    | male   | East     | nyagatare  | rukomo    | nyarurembo  | mugisha123@gmail.com       |  78885067 | 20   |
+|    3 | violette    | angel   | female | west     | rubavu     | bweramana | kareba      | violette143@gmail.com      | 791234560 | 17   |
+|    4 | alice       | uwera   | female | South    | muhanga    | nyamabuye | bweyeye     | aliceuwera@gmail.com       | 791345680 | 19   |
+|    5 | claudine    | bwiza   | female | kigali   | nyarugenge | muhima    | kiyovu      | bwizaclaudine@gmail.com    | 792578086 | 29   |
+|    6 | niyo        | bosco   | male   | north    | musanze    | muhoza    | gasharu     | niyobosco@yahoo.com        | 788354627 | 21   |
+|    7 | jado        | ruberwa | male   | west     | karongi    | murundi   | kareba      | jador123@yahoo.com         | 799236792 | 25   |
+|    8 | niwemurungi | peace   | female | east     | kayonza    | murundi   | nyamushishi | niwemurungipeace@gmail.com | 799489752 | 15   |
+|    9 | itangishaka | gabin   | male   | west     | nyabihu    | rambura   | kabacuzi    | gabin i123@yahoo.com       | 788866543 | 28   |
+|   10 | rukundo     | emile   | male   | south    | nyanza     | musasa    | kanyinya    | rukundoemile@yahoo.com     |  78865432 | 24   |
+|    1 | ishimwe     | anitha  | female | west     | rubavu     | mwunguzi  | kabeza      | ishimweanitha@gmail.com    | 793678921 | 20   |
++------+-------------+---------+--------+----------+------------+-----------+-------------+----------------------------+-----------+------+
+10 rows in set (0.00 sec)
+
+mysql> select *from ngoma order by id asc;
++------+-------------+---------+--------+----------+------------+-----------+-------------+----------------------------+-----------+------+
+| id   | f_name      | L_name  | gender | province | district   | sector    | cell        | Email                      | Tel       | age  |
++------+-------------+---------+--------+----------+------------+-----------+-------------+----------------------------+-----------+------+
+|    1 | ishimwe     | anitha  | female | west     | rubavu     | mwunguzi  | kabeza      | ishimweanitha@gmail.com    | 793678921 | 20   |
+|    2 | mugisha     | adam    | male   | East     | nyagatare  | rukomo    | nyarurembo  | mugisha123@gmail.com       |  78885067 | 20   |
+|    3 | violette    | angel   | female | west     | rubavu     | bweramana | kareba      | violette143@gmail.com      | 791234560 | 17   |
+|    4 | alice       | uwera   | female | South    | muhanga    | nyamabuye | bweyeye     | aliceuwera@gmail.com       | 791345680 | 19   |
+|    5 | claudine    | bwiza   | female | kigali   | nyarugenge | muhima    | kiyovu      | bwizaclaudine@gmail.com    | 792578086 | 29   |
+|    6 | niyo        | bosco   | male   | north    | musanze    | muhoza    | gasharu     | niyobosco@yahoo.com        | 788354627 | 21   |
+|    7 | jado        | ruberwa | male   | west     | karongi    | murundi   | kareba      | jador123@yahoo.com         | 799236792 | 25   |
+|    8 | niwemurungi | peace   | female | east     | kayonza    | murundi   | nyamushishi | niwemurungipeace@gmail.com | 799489752 | 15   |
+|    9 | itangishaka | gabin   | male   | west     | nyabihu    | rambura   | kabacuzi    | gabin i123@yahoo.com       | 788866543 | 28   |
+|   10 | rukundo     | emile   | male   | south    | nyanza     | musasa    | kanyinya    | rukundoemile@yahoo.com     |  78865432 | 24   |
++------+-------------+---------+--------+----------+------------+-----------+-------------+----------------------------+-----------+------+
+10 rows in set (0.00 sec)
+
+mysql> select *from ngoma order by id asc;
+
+
+mysql> select province, district, sector from ngoma;
++----------+------------+-----------+
+| province | district   | sector    |
++----------+------------+-----------+
+| East     | nyagatare  | rukomo    |
+| west     | rubavu     | bweramana |
+| South    | muhanga    | nyamabuye |
+| kigali   | nyarugenge | muhima    |
+| north    | musanze    | muhoza    |
+| west     | karongi    | murundi   |
+| east     | kayonza    | murundi   |
+| west     | nyabihu    | rambura   |
+| south    | nyanza     | musasa    |
+| west     | rubavu     | mwunguzi  |
++----------+------------+-----------+
+10 rows in set (0.00 sec)
+
+
+mysql> select *from ngoma drop email;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'drop email' at line 1
+mysql> alert table ngoma drop email;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'alert table ngoma drop email' at line 1
+mysql> alter table ngoma drop email;
+Query OK, 10 rows affected (0.04 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> select *from ngoma;
++------+-------------+---------+--------+----------+------------+-----------+-------------+-----------+------+
+| id   | f_name      | L_name  | gender | province | district   | sector    | cell        | Tel       | age  |
++------+-------------+---------+--------+----------+------------+-----------+-------------+-----------+------+
+|    2 | mugisha     | adam    | male   | East     | nyagatare  | rukomo    | nyarurembo  |  78885067 | 20   |
+|    3 | violette    | angel   | female | west     | rubavu     | bweramana | kareba      | 791234560 | 17   |
+|    4 | alice       | uwera   | female | South    | muhanga    | nyamabuye | bweyeye     | 791345680 | 19   |
+|    5 | claudine    | bwiza   | female | kigali   | nyarugenge | muhima    | kiyovu      | 792578086 | 29   |
+|    6 | niyo        | bosco   | male   | north    | musanze    | muhoza    | gasharu     | 788354627 | 21   |
+|    7 | jado        | ruberwa | male   | west     | karongi    | murundi   | kareba      | 799236792 | 25   |
+|    8 | niwemurungi | peace   | female | east     | kayonza    | murundi   | nyamushishi | 799489752 | 15   |
+|    9 | itangishaka | gabin   | male   | west     | nyabihu    | rambura   | kabacuzi    | 788866543 | 28   |
+|   10 | rukundo     | emile   | male   | south    | nyanza     | musasa    | kanyinya    |  78865432 | 24   |
+|    1 | ishimwe     | anitha  | female | west     | rubavu     | mwunguzi  | kabeza      | 793678921 | 20   |
++------+-------------+---------+--------+----------+------------+-----------+-------------+-----------+------+
+10 rows in set (0.00 sec)
+
+
+mysql> select *from ngoma where id ='2' and 'age'='20';
+Empty set (0.01 sec)
+
+mysql> select *from ngoma where id ='2' and age='20';
++------+---------+--------+--------+----------+-----------+--------+------------+----------+------+
+| id   | f_name  | L_name | gender | province | district  | sector | cell       | Tel      | age  |
++------+---------+--------+--------+----------+-----------+--------+------------+----------+------+
+|    2 | mugisha | adam   | male   | East     | nyagatare | rukomo | nyarurembo | 78885067 | 20   |
++------+---------+--------+--------+----------+-----------+--------+------------+----------+------+
+1 row in set (0.00 sec)
+
+
+mysql> select *from ngoma where gender='male' or sector='muhima';
++------+-------------+---------+--------+----------+------------+---------+------------+-----------+------+
+| id   | f_name      | L_name  | gender | province | district   | sector  | cell       | Tel       | age  |
++------+-------------+---------+--------+----------+------------+---------+------------+-----------+------+
+|    2 | mugisha     | adam    | male   | East     | nyagatare  | rukomo  | nyarurembo |  78885067 | 20   |
+|    5 | claudine    | bwiza   | female | kigali   | nyarugenge | muhima  | kiyovu     | 792578086 | 29   |
+|    6 | niyo        | bosco   | male   | north    | musanze    | muhoza  | gasharu    | 788354627 | 21   |
+|    7 | jado        | ruberwa | male   | west     | karongi    | murundi | kareba     | 799236792 | 25   |
+|    9 | itangishaka | gabin   | male   | west     | nyabihu    | rambura | kabacuzi   | 788866543 | 28   |
+|   10 | rukundo     | emile   | male   | south    | nyanza     | musasa  | kanyinya   |  78865432 | 24   |
++------+-------------+---------+--------+----------+------------+---------+------------+-----------+------+
+6 rows in set (0.00 sec)
